@@ -26,10 +26,10 @@
         </div>
         <div id="input">
             <form method="post" action="process.php">
-                <input type="text" name="user" placehoder="Enter your name" />
+                <input type="text" name="user" placeholder="Enter your name" />
                 <input type="text" name="message" placeholder="Enter your message here" />
                 <br />
-                <input class="" type="submit" name="submit" value="Send Message" />
+                <input class="chat-btn" type="submit" name="submit" value="Send Message" />
  
             </form>
         </div>
