@@ -1,6 +1,6 @@
 <?php
 // Conect
-$con =mysqli_connect("localhost", "chatterbox");
+$con = mysqli_connect("localhost", "chatterbox");
 
 //Test Conection
 if (mysqli_connect_errno()){

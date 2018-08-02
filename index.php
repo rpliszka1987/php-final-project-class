@@ -1,4 +1,11 @@
 <?php include 'database.php' ?>
+
+<?php
+    // Create Query
+
+    $query = "SELECT * FROM chats";
+    $chating = mysqli_query($con, $query);
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,12 +23,10 @@
         </header>
         <div id="chatbox">
             <ul>
-                <li class="message"><span>10:45 PM - </span> Robert: Hello!   </li>
-                <li class="message"><span>10:45 PM - </span> Robert: Hello!   </li>
-                <li class="message"><span>10:45 PM - </span> Robert: Hello!   </li>
-                <li class="message"><span>10:45 PM - </span> Robert: Hello!   </li>
-                <li class="message"><span>10:45 PM - </span> Robert: Hello!   </li>
-                <li class="message"><span>10:45 PM - </span> Robert: Hello!   </li>
+            <?php while($row = mysqli_fetch_assoc($chating); return $row['value']) : ?>
+						<li class="message"><span><?php echo $row['time'] ?> - </span><strong><?php echo $row['user'] ?>:</strong> <?php echo $row['message'] ?> </li>
+			<?php endwhile; ?>
+
             </ul>
         </div>
         <div id="input">
