@@ -11,7 +11,7 @@ body {
 }
 
 #container {
-  background: #333;
+  background: #333333;
   margin: 50px auto;
   overflow: auto;
   width: 60%;
@@ -19,13 +19,13 @@ body {
 }
 
 header h1 {
-  color: #fff;
+  color: #ffffff;
   font-size: 22px;
   padding: 15px 0 10px 10px;
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #ffffff;
 }
 
-#chatbox {
+#shouts {
   width: 90%;
   background: #f4f4f4;
   height: 400px;
@@ -33,20 +33,21 @@ header h1 {
   overflow: auto;
 }
 
-.message {
+.shout {
   list-style: none;
   padding: 8px;
-  border-bottom: 1px #ccc dotted;
+  border-bottom: 1px #cccccc dotted;
 }
 
-.message span {
-  color: #aaa;
+.shout span {
+  color: #aaaaaa;
 }
 
 #input {
   width: 90%;
   min-height: 80px;
   margin: auto;
+  padding: 0;
 }
 
 #input input[type="text"] {
@@ -54,14 +55,21 @@ header h1 {
   width: 48%;
   padding: 3px;
   margin-bottom: 20px;
-  border: #666 solid 1px;
+  border: #666666 solid 1px;
 }
 
-#input .chat-btn {
+#input .shout-btn {
   padding: 5px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   width: 100%;
   margin: 10px auto;
+}
+
+.error {
+  background: red;
+  color: #ffffff;
+  padding: 5px;
+  margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 768px) {

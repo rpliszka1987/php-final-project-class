@@ -1,43 +1,42 @@
-<?php include 'database.php' ?>
-
+<?php include 'database.php' ; ?>
 <?php
-    // Create Query
-
-    $query = "SELECT * FROM chats";
-    $chating = mysqli_query($con, $query);
+	//Create Select Query
+	$query = "SELECT * FROM chats ORDER BY id DESC";
+	$shouts = mysqli_query($con, $query);
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Chatter Box</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <script src="main.js"></script>
-</head>
-<body>
-    <div id="container">
-        <header>
-            <h1>Chatter Box</h1>
-        </header>
-        <div id="chatbox">
-            <ul>
-            <?php while($row = mysqli_fetch_assoc($chating); return $row['value']) : ?>
-						<li class="message"><span><?php echo $row['time'] ?> - </span><strong><?php echo $row['user'] ?>:</strong> <?php echo $row['message'] ?> </li>
-			<?php endwhile; ?>
+	<head>
+  		<meta charset="utf-8" />
+  		<title>Chatter</title>
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+	</head>
+	<body>
+		<div id="container">
+			<header>
+				<h1>Chatter</h1>
+			</header>
+			<div id="shouts">
+				<ul>
+					<?php while($row = mysqli_fetch_assoc($shouts)) : ?>
+						<li class="shout"><span><?php echo $row['time'] ?> - </span><strong><?php echo $row['user'] ?>:</strong> <?php echo $row['message'] ?> </li>
+					<?php endwhile; ?> 
 
-            </ul>
-        </div>
-        <div id="input">
-            <form method="post" action="process.php">
-                <input type="text" name="user" placeholder="Enter your name" />
-                <input type="text" name="message" placeholder="Enter your message here" />
-                <br />
-                <input class="chat-btn" type="submit" name="submit" value="Send Message" />
- 
-            </form>
-        </div>
-    </div>
-</body>
+
+                 
+				</ul>
+			</div>
+			<div id="input">
+				<?php if(isset($_GET['error'])) : ?>
+					<div class="error"><?php echo $_GET['error']; ?></div>
+				<?php endif; ?>
+				<form method="post" action="process.php">
+					<input type="text" name="user" placeholder="Enter Your Name" />
+					<input type="text" name="message" placeholder="Enter A Message" />
+					<br />
+					<input class="shout-btn" type="submit" name="submit" value="Shout It Out" />
+				</form>
+			</div>
+		</div>
+	</body>
 </html>
