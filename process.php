@@ -16,7 +16,7 @@ if(isset($_POST['submit'])){
 		header("Location: index.php?error=".urlencode($error));
 		exit();
 	} else {
-		$query = "INSERT INTO shouts (user, message, time)
+		$query = "INSERT INTO chats (user, message, time)
 				VALUES ('$user','$message','$time')";
 		
 		if(!mysqli_query($con, $query)){
